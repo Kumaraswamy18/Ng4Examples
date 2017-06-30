@@ -1,0 +1,1 @@
+set PATH=%PATH%;C:\Users\bkumaraswami\AppData\Roaming\npm;
