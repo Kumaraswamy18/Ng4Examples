@@ -18,6 +18,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService }  from './in-memory-data.service';
 import { DevelopersComponent } from './developers/developers.component';
+import { LoginComponent } from './login/login.component';
+import { HomeComponent } from './home/home.component';
+
+import { CanActivateViaOAuthGuard } from './oAuth.canActivateGuard';
 
 @NgModule({
   declarations: [
@@ -27,16 +31,18 @@ import { DevelopersComponent } from './developers/developers.component';
     HeroesComponent,
     HeroDetailComponent,
     HeroDashboardComponent,
-    DevelopersComponent
+    DevelopersComponent,
+    LoginComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
-    InMemoryWebApiModule.forRoot(InMemoryDataService,{passThruUnknownUrl: true} ),
+    InMemoryWebApiModule.forRoot(InMemoryDataService, {passThruUnknownUrl: true} ),
     AppRoutingModule
   ],
-  providers: [ SearchUsersService, HeroService ],
+  providers: [ SearchUsersService, HeroService, CanActivateViaOAuthGuard ],
   bootstrap: [ AppComponent ]
 })
 export class AppModule { }
